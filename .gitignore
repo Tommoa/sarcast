@@ -1,1 +1,3 @@
-/target
+Cargo.lock
+**/target
+sarcast-backend/Cargo.lock

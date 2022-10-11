@@ -1,27 +1,5 @@
-[package]
-name = "podcasts"
-version = "0.1.0"
-edition = "2021"
+[workspace]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-# others
-bytes = "^1.2"
-
-# RSS reading
-atom_syndication = "^0.11"
-rss = "^2.0"
-
-# Getting files
-reqwest = { version = "^0.11", features = [ "rustls-tls-native-roots" ] }
-
-# Playing audio
-rodio = { version = "^0.16", features = [ "symphonia-all", "wasm-bindgen" ] }
-# symphonia = { version = "^0.5", features = [ "aac", "alac", "isomp4", "mp3" ] }
-symphonia = { git = "https://github.com/Tommoa/symphonia", branch="add-id3v2-chap-ctoc", features = [ "aac", "alac", "isomp4", "mp3" ] }
-
-# tokio helpers
-tokio = { version = "^1", features = [ "bytes", "fs", "sync", "rt", "rt-multi-thread", "macros" ] }
-tracing = "0.1"
-tracing-subscriber = "0.3"
+members = [
+    "sarcast-backend",
+]
