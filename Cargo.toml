@@ -2,4 +2,5 @@
 
 members = [
     "sarcast-backend",
+    "sarcast-data",
 ]
