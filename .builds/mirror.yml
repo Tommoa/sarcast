@@ -1,0 +1,16 @@
+image: alpine/edge
+sources:
+  - https://git.sr.ht/~tommoa/sarcast
+environment:
+  github: git@github.com:Tommoa/sarcast
+  branch: master
+secrets:
+  - a29c0ad6-f476-4c1c-bfd2-bf4c108b199f # srht-gh-deploy-key
+  - 8dad079d-daa9-412b-97c5-941af293c2dc # srht-deploy-key
+tasks:
+  - push-to-github: |
+      [ "$BUILD_SUBMITTER" != "git.sr.ht" ] && exit
+      echo "StrictHostKeyChecking=no" >> ~/.ssh/config
+      cd sarcast
+      git remote add github "$github"
+      git push -f github "$branch"
